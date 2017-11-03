@@ -93,7 +93,7 @@ function slide() {
 	};
 
 	setPoint = function() {
-		for (let i = 0; i < sliderBtns.length; i++) {
+		for (var i = 0; i < sliderBtns.length; i++) {
 			sliderBtns[i].className = "";
 		}
 		sliderBtns[index - 1].className = "alive";
@@ -130,6 +130,7 @@ function slide() {
 	var distanceX;
 
 	sliderPics.addEventListener("touchstart", function(e) {
+		e.preventDefault();//修复移动端touchmove，touchend不正常触发
 		clearInterval(sliderLoop);
 		startX = e.changedTouches[0].clientX;
 	});
